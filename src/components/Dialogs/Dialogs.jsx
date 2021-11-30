@@ -6,7 +6,7 @@ import Message from './Message/Message.jsx'
 const Dialogs = (props) => {    
 
     let dialogElemet = props.dialogData.map((el, i) => {
-        return <DialogItem key={i} name={el.name} id={el.id} />
+        return <DialogItem key={i} name={el.name} id={el.id} img={el.img} />
     });    
 
     let messageElemet = props.messageData.map((el, i) => {
