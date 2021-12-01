@@ -3,28 +3,6 @@
   grid-template-columns: 2fr 10fr;
 }
 
-.active,
-.item {
-  text-decoration: none;
-  display: inline-block;
-}
-
-.active {
-  color: gold;
-}
-
-.item {
-  color: white;
-}
-
-.item,
-.message,
-.active {
-  padding: 10px;
-}
-
-.avatar {
-  width: 60px;
-  border-radius: 50%;
+.message {
   padding: 10px;
 }

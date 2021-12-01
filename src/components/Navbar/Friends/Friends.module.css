@@ -1,0 +1,14 @@
+.header {
+    color: #fff;
+    padding: 20px 0 20px 20px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.avatar {
+    width: 30px;
+}

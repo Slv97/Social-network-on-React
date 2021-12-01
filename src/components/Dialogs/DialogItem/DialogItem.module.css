@@ -1,0 +1,35 @@
+.dialog_item {
+  width: 30%;
+  height: 30%;  
+  padding: 10px 0 0px 10px;
+}
+
+.active,
+.item {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.active {
+  color: gold;
+}
+
+.item {
+  color: white;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.name {
+  padding-left: 50px;
+}
