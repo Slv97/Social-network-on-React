@@ -1,5 +1,5 @@
 import MyPosts from './MyPost/MyPosts'
-import s from './Profile.module.css'
+// import s from './Profile.module.css'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 const Profile = (props) => { 

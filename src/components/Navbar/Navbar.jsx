@@ -6,8 +6,8 @@ const Navbar = (props) => {
   let classNavLink = (link) => (link.isActive ? s.active : s.item);
   let navbar = props.navbarData.map((el, i) => {
     return (
-      <div>
-        <NavLink className={classNavLink} to={el.path} key={i}>
+      <div key={i}>
+        <NavLink className={classNavLink} to={el.path} >
           {el.name}
         </NavLink>
       </div>

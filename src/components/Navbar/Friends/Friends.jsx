@@ -1,9 +1,9 @@
 import s from "./Friends.module.css";
 
 const Friends = (props) => {
-  let friend = props.friendsData.map((el) => {
+  let friend = props.friendsData.map((el, i) => {
     return (
-      <div>
+      <div key={i}>
         <img alt="avatar" src={el.img} className={s.avatar} />
         <div>{el.name}</div>
       </div>

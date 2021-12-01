@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Header from "./components/Header/Header";
@@ -9,26 +9,36 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-
 const App = (props) => {
-
   return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <Header />
-        <Navbar navbarData={props.appState.sidebar.navbarData} friendsData={props.appState.sidebar.friendsData}/>
+    <div className="app-wrapper">
+      <Header />
+      <Navbar
+        navbarData={props.appState.sidebar.navbarData}
+        friendsData={props.appState.sidebar.friendsData}
+      />
 
-        <div className="app-wrapper-content">
-          <Routes>
-            <Route path="/profile" element={<Profile postData={props.appState.profilePage.postData} />} />
-            <Route path="/dialogs/*" element={<Dialogs dialogData={props.appState.dialogPage.dialogData} messageData={props.appState.dialogPage.messageData} />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/music" element={<Music />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </div>
+      <div className="app-wrapper-content">
+        <Routes>
+          <Route
+            path="/profile"
+            element={<Profile postData={props.appState.profilePage.postData} />}
+          />
+          <Route
+            path="/dialogs/*"
+            element={
+              <Dialogs
+                dialogData={props.appState.dialogPage.dialogData}
+                messageData={props.appState.dialogPage.messageData}
+              />
+            }
+          />
+          <Route path="/news" element={<News />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
       </div>
-    </BrowserRouter>
+    </div>
   );
 };
 
