@@ -7,6 +7,7 @@ const ProfileInfo = () => {
         <img
           className={s.my_image}
           src="https://klike.net/uploads/posts/2020-02/1581238406_2.jpg"
+          alt="img"
         />
       </div>
 

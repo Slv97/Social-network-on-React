@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 const state = {
   profilePage: {
     postData: [
@@ -5,6 +7,7 @@ const state = {
       { id: 2, message: "Hi, how old are you", likesCount: 4 },
       { id: 3, message: "Andy", likesCount: 6 },
     ],
+    newPostText: 'lena'
   },
   dialogPage: {
     dialogData: [
@@ -28,6 +31,7 @@ const state = {
       { id: 3, text: "lol" },
       { id: 4, text: "hi" },
     ],
+    newMessageText: 'message'
   },
   sidebar: {
     navbarData: [
@@ -48,5 +52,37 @@ const state = {
     ],
   },
 };
+
+// window.state = state; //посмотреть в консоли изменения в state
+
+export let addPost = () => {
+    let newPost = {
+        id: 4, message: state.profilePage.newPostText, likesCount: 0
+    }
+
+    state.profilePage.postData.push(newPost)
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state)
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
+
+export let addMessage = () => {
+    let newMessage = {
+         id: 5, text: state.dialogPage.newMessageText
+    }
+
+    state.dialogPage.messageData.push(newMessage)
+    state.dialogPage.newMessageText = '';
+    rerenderEntireTree(state)
+}
+
+export let updateNewMessageText = (newText) => {
+    state.dialogPage.newMessageText = newText
+    rerenderEntireTree(state)
+}
 
 export default state;

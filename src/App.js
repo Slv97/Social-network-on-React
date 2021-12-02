@@ -14,22 +14,28 @@ const App = (props) => {
     <div className="app-wrapper">
       <Header />
       <Navbar
-        navbarData={props.appState.sidebar.navbarData}
-        friendsData={props.appState.sidebar.friendsData}
+        navbarData={props.state.sidebar.navbarData}
+        friendsData={props.state.sidebar.friendsData}
       />
 
       <div className="app-wrapper-content">
         <Routes>
           <Route
             path="/profile"
-            element={<Profile postData={props.appState.profilePage.postData} />}
+            element={<Profile postData={props.state.profilePage.postData}
+                              addPost={props.addPost}
+                              newPostText={props.state.profilePage.newPostText}
+                              updateNewPostText={props.updateNewPostText} />}
           />
           <Route
             path="/dialogs/*"
             element={
               <Dialogs
-                dialogData={props.appState.dialogPage.dialogData}
-                messageData={props.appState.dialogPage.messageData}
+                dialogData={props.state.dialogPage.dialogData}
+                messageData={props.state.dialogPage.messageData}
+                addMessage={props.addMessage}
+                updateNewMessageText={props.updateNewMessageText}
+                newMessageText={props.state.dialogPage.newMessageText}
               />
             }
           />
