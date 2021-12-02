@@ -68,35 +68,34 @@ let store = {
   subscribe(observer) {
     this._subscribe = observer;
   },
-  addPost() {
-    let newPost = {
-      id: 4,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-    };
 
-    this._state.profilePage.postData.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._subscribe(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._subscribe(this._state);
-  },
-  addMessage() {
-    
-    let newMessage = {
-      id: 5,
-      text: this._state.dialogPage.newMessageText,
-    };
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPost = {
+        id: 4,
+        message: this._state.profilePage.newPostText,
+        likesCount: 0,
+      };
 
-    this._state.dialogPage.messageData.push(newMessage);
-    this._state.dialogPage.newMessageText = "";
-    this._subscribe(this._state);
-  },
-  updateNewMessageText(newText) {
-    this._state.dialogPage.newMessageText = newText;
-    this._subscribe(this._state);
+      this._state.profilePage.postData.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this._subscribe(this._state);
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._state.profilePage.newPostText = action.newText;
+      this._subscribe(this._state);
+    } else if (action.type === "ADD-MESSAGE") {
+      let newMessage = {
+        id: 5,
+        text: this._state.dialogPage.newMessageText,
+      };
+
+      this._state.dialogPage.messageData.push(newMessage);
+      this._state.dialogPage.newMessageText = "";
+      this._subscribe(this._state);
+    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+      this._state.dialogPage.newMessageText = action.newText;
+      this._subscribe(this._state);
+    }
   },
 };
 
