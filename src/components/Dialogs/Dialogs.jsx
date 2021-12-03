@@ -1,7 +1,7 @@
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message.jsx";
-import NewMessage from "./NewMessage/NewMessage";
+import NewMessageContainer from "./NewMessage/NewMessageContainer";
 
 const Dialogs = (props) => {
   let dialogElemet = props.dialogData.map((el, i) => {
@@ -19,9 +19,8 @@ const Dialogs = (props) => {
       <div className={s.messages}>{messageElemet}</div>
 
       <div className={s.new_messages}>
-        <NewMessage
-          dispatch={props.dispatch}
-          newMessageText={props.newMessageText}
+        <NewMessageContainer
+          store={props.store}
         />
       </div>
     </div>
