@@ -2,29 +2,19 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import StoreContext from "./StoreContext";
+import NavbarContainer from "./components/Navbar/NavbarContainer";
+
 
 const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
-      <StoreContext.Consumer>
-        {(store) => {
-          let state = store.getState();
-          return (
-            <Navbar
-              navbarData={state.sidebar.navbarData}
-              friendsData={state.sidebar.friendsData}
-            />
-          );
-        }}
-      </StoreContext.Consumer>
+      <NavbarContainer />
 
       <div className="app-wrapper-content">
         <Routes>
@@ -38,5 +28,7 @@ const App = (props) => {
     </div>
   );
 };
+
+
 
 export default App;
