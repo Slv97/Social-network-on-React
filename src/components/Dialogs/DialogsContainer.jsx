@@ -1,13 +1,21 @@
+import StoreContext from "../../StoreContext";
 import Dialogs from "./Dialogs";
 
-const DialogsContainer = (props) => {
-  let state = props.store.getState();
+const DialogsContainer = () => {
+ 
   return (
-    <Dialogs
-      dialogData={state.dialogPage.dialogData}
-      messageData={state.dialogPage.messageData}
-      store={props.store}
-    />
+    <StoreContext.Consumer>
+      {store => {
+         let state = store.getState();
+        return (
+          <Dialogs
+            dialogData={state.dialogPage.dialogData}
+            messageData={state.dialogPage.messageData}
+          />
+        );
+      }
+    }
+    </StoreContext.Consumer>
   );
 };
 
