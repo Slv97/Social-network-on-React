@@ -4,12 +4,12 @@ import Message from "./Message/Message.jsx";
 import NewMessageContainer from "./NewMessage/NewMessageContainer";
 
 const Dialogs = (props) => {
-  let dialogElemet = props.dialogData.map((el, i) => {
-    return <DialogItem key={i} name={el.name} id={el.id} img={el.img} />;
+  let dialogElemet = props.dialogData.map((el) => {
+    return <DialogItem key={el.id} name={el.name} id={el.id} img={el.img} />;
   });
 
-  let messageElemet = props.messageData.map((el, i) => {
-    return <Message key={i} id={el.id} text={el.text} />;
+  let messageElemet = props.messageData.map((el) => {
+    return <Message key={el.id} id={el.id} text={el.text} />;
   });
 
   return (
