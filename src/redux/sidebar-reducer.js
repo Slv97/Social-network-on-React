@@ -2,6 +2,7 @@ let initialState = {
     navbarData: [
       { path: "/profile", name: "Profile" },
       { path: "/dialogs", name: "Messages" },
+      { path: "/users", name: "Users" },
       { path: "/news", name: "News" },
       { path: "/music", name: "Music" },
       { path: "/settings", name: "Settings" },
