@@ -2,3 +2,14 @@
     width: 40px;
 }
 
+.page,
+.selectedPage {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.selectedPage {
+    font-weight: bold;
+    color: #fff;
+}
+
