@@ -1,13 +1,10 @@
 import s from "./Users.module.css";
-import * as axios from "axios"
-import userPhoto from '../../assets/images/smile.svg'
-import React from "react"
+import * as axios from "axios";
+import userPhoto from "../../assets/images/smile.svg";
+import React from "react";
 
 class Users extends React.Component {
-
-  constructor(props) {
-    super(props)
-
+  componentDidMount() {
     if (this.props.usersData.length === 0) {
       axios
         .get("https://social-network.samuraijs.com/api/1.0/users")
@@ -17,15 +14,10 @@ class Users extends React.Component {
     }
   }
 
-  getUsers = () => {
-    
-  };
 
   render() {
     return (
       <div>
-        
-  
         {this.props.usersData.map((el) => {
           return (
             <div key={el.id}>
