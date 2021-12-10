@@ -10,3 +10,7 @@
 .description {
   padding-left: 20px;
 }
+
+.photo {
+  object-fit: contain;
+}
