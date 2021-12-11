@@ -1,7 +1,16 @@
 .header {
-    grid-area: h;
-  }
-  
-  .logo {
-    width: 60px;
-  }
+  grid-area: h;
+}
+
+.logo {
+  width: 60px;
+}
+
+.loginBlock {
+  float: right;
+}
+
+.loginBlock a {
+  color: #fff;
+  font-size: 36px;
+}
