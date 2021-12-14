@@ -2,7 +2,6 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/smile.svg";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { followAPI, unfollowAPI } from "../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -45,15 +44,11 @@ const Users = (props) => {
                 {el.followed ? (
                   <button
                     className={s.button}
-                    disabled={props.followingInProgress.some(id => id === el.id)}
+                    disabled={props.followingInProgress.some(
+                      (id) => id === el.id
+                    )}
                     onClick={() => {
-                      props.toggleFollowingProgress(true, el.id);
-                      unfollowAPI.unfollow(el.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.unfollow(el.id);
-                        }
-                        props.toggleFollowingProgress(false, el.id);
-                      });
+                      props.unfollow(el.id);
                     }}
                   >
                     unfollow
@@ -61,15 +56,11 @@ const Users = (props) => {
                 ) : (
                   <button
                     className={s.button}
-                    disabled={props.followingInProgress.some(id => id === el.id)}
+                    disabled={props.followingInProgress.some(
+                      (id) => id === el.id
+                    )}
                     onClick={() => {
-                      props.toggleFollowingProgress(true, el.id);
-                      followAPI.follow(el.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.follow(el.id);
-                        }
-                        props.toggleFollowingProgress(false, el.id);
-                      });
+                      props.follow(el.id);
                     }}
                   >
                     follow
