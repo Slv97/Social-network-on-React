@@ -11,6 +11,7 @@ import {
 import React from "react";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
@@ -52,10 +53,12 @@ let mapStateToProps = (state) => {
   };
 };
 
+let withRedirect = withAuthRedirect(UsersAPIComponent)
+
 export default connect(mapStateToProps, {
   follow,
   unfollow,
   setCurrentPage,
   toggleFollowingProgress,
   getUsers: getUsersThunkCreator,
-})(UsersAPIComponent);
+})(withRedirect);
