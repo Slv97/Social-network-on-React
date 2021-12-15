@@ -1,5 +1,6 @@
 import s from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/smile.svg";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -17,7 +18,7 @@ const ProfileInfo = (props) => {
       </div>
 
       <div className={s.profile}>
-        <img className={s.photo} src={props.profile.photos.large} alt="largePhoto" />
+        <img className={s.photo} src={props.profile.photos.large ? props.profile.photos.large : userPhoto} alt="largePhoto" />
 
         <div className={s.description}>
           <h2>{props.profile.fullName}</h2>

@@ -13,4 +13,5 @@
 
 .photo {
   object-fit: contain;
+  width: 160px;
 }
