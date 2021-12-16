@@ -1,6 +1,7 @@
 import s from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "../../../assets/images/smile.svg";
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -26,6 +27,7 @@ const ProfileInfo = (props) => {
             <span></span>
           
         </div>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       </div>
     </div>
   );
