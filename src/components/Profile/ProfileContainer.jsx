@@ -12,14 +12,14 @@ import { compose } from "redux";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userId = this.props.match ? this.props.match.params.userId : "21234";
+    let userId = this.props.match ? this.props.match.params.userId : this.props.authorizedUserId;
+
+    if(!userId){
+        this.props.history.push("/login")
+      } 
 
     this.props.getUserProfile(userId);
-
-    // setTimeout(()=>{
-      this.props.getStatus(userId);
-    // }, 1000)
-    
+    this.props.getStatus(userId);
   }
 
   render() {
@@ -39,6 +39,8 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
+  authorizedUserId: state.auth.userId,
+  isAuth: state.auth.isAuth,
 });
 
 let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
