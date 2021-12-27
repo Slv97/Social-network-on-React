@@ -3,8 +3,7 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = React.memo((props) => {
-  console.log("render yo")
-  let postElement = props.postData.map((el, i) => {
+  let postElement = [...props.postData].reverse().map((el, i) => {
     return (
       <Post
         key={i}
