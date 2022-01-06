@@ -25,7 +25,8 @@ import { compose } from "redux";
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    let {currentPage, pageSize} = this.props;
+    this.props.getUsers(currentPage, pageSize);
   }
 
   onPageChanged = (el) => {
